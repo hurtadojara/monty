@@ -31,8 +31,8 @@ int main(int argc, char **argv)
     while (read > 0)
     {
         linea++;
-        token = strtok(line, " \n");
-        for (; token != NULL; token = strtok(NULL, " \n"))
+        token = strtok(line, " \n\t\r\a");
+        for (; token != NULL; token = strtok(NULL, " \n\t\r\a"))
         {
             strings[arg] = strdup(token);
             printf("%s\n", strings[arg]);
