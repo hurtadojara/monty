@@ -2,18 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+struct var_global global_t;
 
 int main(int argc, char **argv) 
 {
     size_t line_size = 0;
     int read = 0, arg = 0;
-    unsigned int linea = 0;
     FILE *fd;
-    char **strings = NULL, *token, *line = NULL;
+    char *token, *line = NULL;
     void (*operation)(stack_t **, unsigned int);
-    stack_t **nodo = NULL;
-    unsigned int i = 0;
+    global_t.nodo = NULL, global_t.strings = NULL;
+
 
     if (argc == 2)
     {
@@ -24,22 +23,22 @@ int main(int argc, char **argv)
     }
     else
         return (1);
-    strings = malloc(sizeof((char *)100));
-    if (!strings)
+    global_t.strings = malloc(sizeof((char *)100));
+    if (!global_t.strings)
         return (-1);
     read = getline(&line, &line_size, fd);
     while (read > 0)
     {
-        linea++;
         token = strtok(line, " \n\t\r\a");
         for (; token != NULL; token = strtok(NULL, " \n\t\r\a"))
         {
-            strings[arg] = strdup(token);
-            printf("%s\n", strings[arg]);
+            global_t.strings[arg] = strdup(token);
+            //printf("%s\n", strings[arg]);
             arg++;
         }
-        operation = unificador(strings, linea);
-        operation(nodo, i);
+        global_t.n_linea++;
+        operation = unificador(global_t.strings, global_t.n_linea);
+        operation(global_t.nodo, global_t.n_linea);
         read = getline(&line, &line_size, fd);
     }
     return (0);

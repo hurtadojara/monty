@@ -31,6 +31,15 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+struct var_global
+{
+        char **strings;
+        stack_t **nodo;
+        unsigned int n_linea;
+
+};
+extern struct var_global global_t;
+
 void pall(stack_t **, unsigned int);
 void push(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
@@ -38,6 +47,6 @@ void pint(stack_t **, unsigned int);
 void swap(stack_t **, unsigned int);
 void add(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
-void (*unificador(char **, unsigned int))(stack_t **, unsigned int);
+void (*unificador())(stack_t **, unsigned int);
 
 #endif
