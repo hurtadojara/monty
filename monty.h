@@ -40,6 +40,10 @@ struct var_global
 };
 extern struct var_global global_t;
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 void pall(stack_t **, unsigned int);
 void push(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
@@ -48,5 +52,6 @@ void swap(stack_t **, unsigned int);
 void add(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void (*unificador())(stack_t **, unsigned int);
+void getlinetok(FILE *);
 
 #endif
