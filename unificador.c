@@ -9,6 +9,7 @@ void (*unificador(void))(stack_t **, unsigned int)
     instruction_t functions[] = {
         {"pall", pall},
         {"push", push},
+        {"pint", pint},
         {NULL, NULL}
     };
     int i = 0;
