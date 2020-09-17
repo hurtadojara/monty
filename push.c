@@ -7,9 +7,9 @@ extern struct var_global global_t;
 
 void push(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
-
 	stack_t *new = NULL;
+	(void)line_number;
+	
 	new = malloc(sizeof(stack_t));
 
 	if (new == NULL)
