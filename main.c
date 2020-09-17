@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     }
     else
         return (1);
-    global_t.strings = malloc(sizeof((char *)100));
+    global_t.strings = malloc(sizeof(char *) * 100);
     if (!global_t.strings)
         return (-1);
     read = getline(&line, &line_size, fd);
@@ -33,12 +33,12 @@ int main(int argc, char **argv)
         for (; token != NULL; token = strtok(NULL, " \n\t\r\a"))
         {
             global_t.strings[arg] = strdup(token);
-            //printf("%s\n", strings[arg]);
             arg++;
         }
+        arg = 0;
         global_t.n_linea++;
         operation = unificador(global_t.strings, global_t.n_linea);
-        operation(global_t.nodo, global_t.n_linea);
+        operation(&global_t.nodo, global_t.n_linea);
         read = getline(&line, &line_size, fd);
     }
     return (0);

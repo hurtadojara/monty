@@ -34,7 +34,7 @@ typedef struct instruction_s
 struct var_global
 {
         char **strings;
-        stack_t **nodo;
+        stack_t *nodo;
         unsigned int n_linea;
 
 };

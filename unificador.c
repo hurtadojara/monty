@@ -7,14 +7,12 @@ struct var_global global_t;
 void (*unificador(void))(stack_t **, unsigned int)
 {
     instruction_t functions[] = {
-        //{"pall", pall},
+        {"pall", pall},
         {"push", push},
         {NULL, NULL}
     };
-
     int i = 0;
-printf("hasta aca bien x1");
-    while (i < 2)
+    while (i < 3)
     {
         if (strcmp(functions[i].opcode, global_t.strings[0]) == 0)
         {

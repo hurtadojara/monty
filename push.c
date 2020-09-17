@@ -7,29 +7,29 @@ extern struct var_global global_t;
 
 void push(stack_t **stack, unsigned int line_number)
 {
-    stack_t *new;
-	stack_t *tmp;
-    (void)stack;
-    (void)line_number;
+	(void)line_number;
 
-    if (!global_t.strings[1])
-        printf("error");
-    new = malloc(sizeof(stack_t));
+	stack_t *new = NULL;
+	new = malloc(sizeof(stack_t));
+
 	if (new == NULL)
 		printf("error");
+    if (global_t.strings[1] == NULL)
+        printf("error");
+
     new->n = atoi(global_t.strings[1]);
-    new->next = NULL;
     if (*stack == NULL)
 	{
+		new->next = NULL;
 		new->prev = NULL;
 		*stack = new;
 	}
     else
 	{
-		tmp = *stack;
-		while (tmp->next != NULL)
-			tmp = tmp->next;
-		tmp->next = new;
-		new->prev = tmp;
+		new->next = *stack;
+		new->prev = (*stack)->prev;
+		(*stack)->prev = new;
+		*stack = new;
 	}
+	return;
 }
