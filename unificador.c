@@ -11,10 +11,11 @@ void (*unificador(void))(stack_t **, unsigned int)
         {"push", push},
         {"pint", pint},
         {"pop", pop},
+        {"swap", swap},
         {NULL, NULL}
     };
     int i = 0;
-    while (i < 4)
+    while (i < 5)
     {
         if (strcmp(functions[i].opcode, global_t.strings[0]) == 0)
         {
