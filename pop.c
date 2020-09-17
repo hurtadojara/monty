@@ -1,5 +1,4 @@
 #include "header.h"
-#include "header.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,7 +12,7 @@ void pop(stack_t **stack, unsigned int line_number)
 		printf("error in: %d", line_number);
 	tmp = *stack;
 	*stack = (*stack)->next;
-	if ((*stack)->prev != NULL)
+	if (tmp->n != 1)
 	{
 	if ((*stack)->next == NULL)
 		free(tmp);
