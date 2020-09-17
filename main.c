@@ -1,10 +1,10 @@
-#include "header.h"
+#include "monty.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 struct var_global global_t;
 
-int main(int argc, char **argv) 
+void main(int argc, char **argv) 
 {
     size_t line_size = 0;
     int read = 0, arg = 0;
@@ -41,5 +41,4 @@ int main(int argc, char **argv)
         operation(&global_t.nodo, global_t.n_linea);
         read = getline(&line, &line_size, fd);
     }
-    return (0);
 }
