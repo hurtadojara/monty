@@ -18,7 +18,7 @@ void getlinetok(FILE *fd)
 	global_t.linea = line;
 	while (read > 0)
 	{
-	global_t.strings = malloc(sizeof(char *) * 100);
+		global_t.strings = malloc(sizeof(char *) * 100);
 		if (!global_t.strings)
 		{
 			fprintf(stderr, "Error: malloc failed");
