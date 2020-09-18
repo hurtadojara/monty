@@ -21,6 +21,8 @@ void (*unificador(void))(stack_t **, unsigned int)
 
 	while (i < 8)
 	{
+		if (!global_t.strings[0])
+			break;
 		cmp = strcmp(functions[i].opcode, global_t.strings[0]);
 		if (cmp == 0)
 		{
@@ -34,5 +36,5 @@ void (*unificador(void))(stack_t **, unsigned int)
 	{
 		e_handler(2);
 	}
-	return (NULL);
+	return (functions[6].f);
 }

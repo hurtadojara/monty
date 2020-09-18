@@ -11,12 +11,13 @@ void getlinetok(FILE *fd)
 {
 	char *token, *line = NULL;
 	size_t line_size = 0;
-	int read = 0, arg = 0;
+	int real = 0, arg = 0;
 	void (*operation)(stack_t **, unsigned int);
 
-	read = getline(&line, &line_size, fd);
+	real = getline(&line, &line_size, fd);
+	line[real - 1] = '\0';
 	global_t.linea = line;
-	while (read > 0)
+	while (real != -1)
 	{
 		global_t.strings = malloc(sizeof(char *) * 100);
 		if (!global_t.strings)
@@ -37,6 +38,8 @@ void getlinetok(FILE *fd)
 		operation = unificador(global_t.strings, global_t.n_linea);
 		operation(&global_t.nodo, global_t.n_linea);
 		eraser();
-		read = getline(&line, &line_size, fd);
+		real = getline(&line, &line_size, fd);
+		line[real - 1] = '\0';
+
 	}
 }

@@ -13,6 +13,7 @@ int main(int argc, char **argv)
 {
 	FILE *fd;
 	stack_t *nodo;
+	global_t.n_linea = 1;
 
 	global_t.nodo = NULL, global_t.strings = NULL;
 	if (argc == 2)
