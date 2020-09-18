@@ -7,9 +7,9 @@ struct var_global global_t;
 void getlinetok(FILE *fd)
 {
 	char *token, *line = NULL;
-    size_t line_size = 0;
+	size_t line_size = 0;
 	int read = 0, arg = 0;
-    void (*operation)(stack_t **, unsigned int);
+	void (*operation)(stack_t **, unsigned int);
 
 	read = getline(&line, &line_size, fd);
 	global_t.linea = line;

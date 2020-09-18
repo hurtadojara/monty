@@ -8,8 +8,8 @@ int main(int argc, char **argv)
 {
 	FILE *fd;
 	stack_t *nodo;
-	global_t.nodo = NULL, global_t.strings = NULL;
 
+	global_t.nodo = NULL, global_t.strings = NULL;
 	if (argc == 2)
 	{
 		fd = fopen(argv[1], "r");

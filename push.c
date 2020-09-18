@@ -10,7 +10,7 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *new = NULL;
 	int i;
 	(void)line_number;
-	
+
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
@@ -30,19 +30,18 @@ void push(stack_t **stack, unsigned int line_number)
 		e_handler(3);
 	}
 	else
-    	new->n = atoi(global_t.strings[1]);
-    if (*stack == NULL)
+		new->n = atoi(global_t.strings[1]);
+	if (*stack == NULL)
 	{
 		new->next = NULL;
 		new->prev = NULL;
 		*stack = new;
 	}
-    else
+	else
 	{
 		new->next = *stack;
 		new->prev = (*stack)->prev;
-		(*stack)->prev = new;
+(*stack)->prev = new;
 		*stack = new;
 	}
-	return;
 }

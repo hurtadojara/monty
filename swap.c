@@ -4,7 +4,6 @@
 #include <string.h>
 struct var_global global_t;
 
-
 void swap(stack_t **stack, unsigned int line_number)
 {
 	int temp;
@@ -12,7 +11,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	if (*stack && (*stack)->next)
 	{
-		 temp = (*stack)->n;
+		temp = (*stack)->n;
 		(*stack)->n = (*stack)->next->n;
 		(*stack)->next->n = temp;
 	}
