@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		}
 	}
 	else
-		e_handler(0);
+		e_handler2(0);
 	getlinetok(fd);
 	nodo = global_t.nodo;
 	while (nodo != NULL)

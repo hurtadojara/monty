@@ -9,11 +9,12 @@ void e_handler(int error)
 		free(global_t.linea);
 		free(global_t.nodo);
 		fclose(global_t.fd);
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	else if (error == 2)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", global_t.n_linea, global_t.strings[0]);
+		fprintf(stderr, "L%d: unknown instruction %s\n",
+		global_t.n_linea, global_t.strings[0]);
 		eraser();
 		free(global_t.linea);
 		fclose(global_t.fd);
@@ -35,7 +36,11 @@ void e_handler(int error)
 		fclose(global_t.fd);
 		exit(EXIT_FAILURE);
 	}
-	else if (error == 5)
+}
+
+void e_handler2(int error)
+{
+	if (error == 5)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", global_t.n_linea);
 		eraser();

@@ -18,6 +18,6 @@ void add(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("error: %d", line_number);
+		e_handler2(6);
 	}
 }

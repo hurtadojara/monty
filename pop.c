@@ -11,7 +11,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 
 	if (stack == NULL || *stack == NULL)
-		e_handler(5);
+		e_handler2(5);
 	tmp = *stack;
 	*stack = (*stack)->next;
 	if (tmp->n != 1)

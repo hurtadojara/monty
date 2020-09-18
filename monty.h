@@ -35,6 +35,14 @@ typedef struct instruction_s
 		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct var_global - global struct.
+ * @strings: comand and element.
+ * @nodo: pointer to head.
+ * @n_linea: num of line.
+ * @linea: line of getlione.
+ * @fd: file descriptor.
+ */
 struct var_global
 {
 		char **strings;
@@ -56,5 +64,6 @@ void (*unificador())(stack_t **, unsigned int);
 void getlinetok(FILE *);
 void e_handler(int error);
 void eraser(void);
+void e_handler2(int error);
 
 #endif
