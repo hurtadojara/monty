@@ -3,7 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 struct var_global global_t;
-
+/**
+  * getlinetok - function to get line and toks.
+  * @fd: file descriptor.
+  */
 void getlinetok(FILE *fd)
 {
 	char *token, *line = NULL;

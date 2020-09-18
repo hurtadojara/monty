@@ -3,7 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 struct var_global global_t;
-
+/**
+  * unificador - function to find opcode.
+  * Return: pointer to function.
+  */
 void (*unificador(void))(stack_t **, unsigned int)
 {
 	instruction_t functions[] = {

@@ -3,7 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 struct var_global global_t;
-
+/**
+  * main - entry point.
+  * @argc: argc.
+  * @argv: argv.
+  * Return: 1.
+  */
 int main(int argc, char **argv)
 {
 	FILE *fd;

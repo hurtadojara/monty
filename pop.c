@@ -3,8 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 struct var_global global_t;
-
-
+/**
+  * pop - function to removes the top element of the stack.
+  * @stack: pointer to head.
+  * @line_number: line number.
+  */
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;

@@ -3,7 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 struct var_global global_t;
-
+/**
+  * pint - function to prints the value at the top of the stack.
+  * @stack: pointer to head.
+  * @line_number: line number.
+  */
 void pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;

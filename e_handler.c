@@ -1,5 +1,8 @@
 #include "monty.h"
-
+/**
+  * e_handler - fuction to handle error.
+  * @error: id error.
+  */
 void e_handler(int error)
 {
 	if (error == 1)
@@ -38,6 +41,10 @@ void e_handler(int error)
 	}
 }
 
+/**
+  * e_handler2 - fuction to handle error.
+  * @error: id error.
+  */
 void e_handler2(int error)
 {
 	if (error == 5)

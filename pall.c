@@ -3,7 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 struct var_global global_t;
-
+/**
+  * pall - function to prints all the values on the stack.
+  * @stack: pointer to head.
+  * @line_number: line number.
+  */
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;

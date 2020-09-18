@@ -4,6 +4,11 @@
 #include <string.h>
 struct var_global global_t;
 
+/**
+  * swap - function to add node.
+  * @stack: pointer to head.
+  * @line_number: line number.
+  */
 void swap(stack_t **stack, unsigned int line_number)
 {
 	int temp;

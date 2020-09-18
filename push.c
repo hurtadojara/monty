@@ -3,8 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 struct var_global global_t;
-
-
+/**
+  * push - function to add node.
+  * @stack: pointer to head.
+  * @line_number: line number.
+  */
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = NULL;

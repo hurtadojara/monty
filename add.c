@@ -3,7 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 struct var_global global_t;
-
+/**
+  * add - function to adds.
+  * @stack: pointer to head.
+  * @line_number: line number.
+  */
 void add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
