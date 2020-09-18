@@ -53,5 +53,6 @@ void add(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void (*unificador())(stack_t **, unsigned int);
 void getlinetok(FILE *);
+void e_handler(int error);
 
 #endif
