@@ -1,21 +1,19 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-struct var_global global_t;
 /**
-  * pint - function to prints the value at the top of the stack.
-  * @stack: pointer to head.
-  * @line_number: line number.
-  */
+ *pint- prints the date at the top of the stack, follow new line.
+ *@stack: pointer to stack
+ *@line_number: line number of instruction
+ *Return: void
+ */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
-	(void) line_number;
+	int date;
 
-	if (tmp == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
-		e_handler(4);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", tmp->n);
+	date = (*stack)->n;
+	printf("%d\n", date);
 }

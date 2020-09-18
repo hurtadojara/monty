@@ -1,28 +1,24 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-struct var_global global_t;
 /**
-  * add - function to adds.
-  * @stack: pointer to head.
+  * add - adds top elements of the stack.
+  * @stack: pointer to stack.
   * @line_number: line number.
+  * Return: void.
   */
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
-	(void)line_number;
+	int a;
+	int b;
+	int result;
 
-	if (*stack && (*stack)->next)
+	if (s_len(stack) < 2)
 	{
-		(*stack)->next->n += (*stack)->n;
-		tmp = *stack;
-		*stack = (*stack)->next;
-		(*stack)->prev = NULL;
-		free(tmp);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
 	}
-	else
-	{
-		e_handler2(6);
-	}
+	a = (*stack)->n;
+	b = (*stack)->next->n;
+	result = a + b;
+	pop(stack, line_number);
+	(*stack)->n = result;
 }

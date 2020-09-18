@@ -1,10 +1,16 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <fcntl.h>
 #include <ctype.h>
+
+#define DELIM "\n\t\r "
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -17,9 +23,9 @@
  */
 typedef struct stack_s
 {
-		int n;
-		struct stack_s *prev;
-		struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -32,41 +38,21 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-		char *opcode;
-		void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/**
- * struct var_global - global struct.
- * @strings: comand and element.
- * @nodo: pointer to head.
- * @n_linea: num of line.
- * @linea: line of getlione.
- * @fd: file descriptor.
- * @nn: new_p
- */
-struct var_global
-{
-		char **strings;
-		stack_t *nodo;
-		unsigned int n_linea;
-		char *linea;
-		FILE *fd;
-		stack_t *nn;
-};
-extern struct var_global global_t;
+int opcode_fun(char *opcode, stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number, char *n);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+size_t s_len(stack_t **stack);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void stk_free(stack_t **stack);
+void _frees(stack_t *stack, char *line, FILE *fd);
 
-void pall(stack_t **, unsigned int);
-void push(stack_t **, unsigned int);
-void pop(stack_t **, unsigned int);
-void pint(stack_t **, unsigned int);
-void swap(stack_t **, unsigned int);
-void add(stack_t **, unsigned int);
-void nop(stack_t **, unsigned int);
-void (*unificador())(stack_t **, unsigned int);
-void getlinetok(FILE *);
-void e_handler(int error);
-void eraser(void);
-void e_handler2(int error);
 
-#endif
+#endif /*monty.h*/

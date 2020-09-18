@@ -1,53 +1,45 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-struct var_global global_t;
 /**
-  * push - function to add node.
-  * @stack: pointer to head.
-  * @line_number: line number.
-  */
-void push(stack_t **stack, unsigned int line_number)
+ *push- pushes an element to the stack.
+ *@stack: pointer to stack
+ *@line_number: line number of instruction
+ *@n: new item on stack
+ *Return: void
+ */
+void push(stack_t **stack, unsigned int line_number, char *n)
 {
+	int i;
 	stack_t *new = NULL;
-	int i = 0;
-	(void)line_number;
 
+	if (n == NULL)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	for (i = 0; n[i] != '\0'; i++)
+	{
+		if (n[0] == '-' && i == 0)
+			continue;
+		if (isdigit(n[i]) == 0)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+	}
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed");
-		eraser();
-		free(new);
-		free(global_t.linea);
-		fclose(global_t.fd);
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	global_t.nn = new;
-	while (global_t.strings[i] != NULL)
-	{
-		i++;
-	}
-	if (i < 2)
-	{
-		e_handler(3);
-	}
-	else
-		if (global_t.strings[1][0] == '-')
-			new->n = (atoi(global_t.strings[1]) * -1);
-	new->n = atoi(global_t.strings[1]);
-	if (*stack == NULL)
-	{
-		new->next = NULL;
-		new->prev = NULL;
-		*stack = new;
-	}
-	else
+
+	new->n = atoi(n);
+	new->prev = NULL;
+	new->next = NULL;
+	if (*stack != NULL)
 	{
 		new->next = *stack;
-		new->prev = (*stack)->prev;
 		(*stack)->prev = new;
-		*stack = new;
 	}
+	*stack = new;
 }

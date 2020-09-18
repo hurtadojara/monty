@@ -1,42 +1,47 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-struct var_global global_t;
+
 /**
-  * main - entry point.
-  * @argc: argc.
-  * @argv: argv.
-  * Return: 1.
-  */
-int main(int argc, char **argv)
+ * main - Entry pointcode
+ * @argc: number of arguments
+ * @argv: pointer to array of strings of arguments
+ * Return: 0 on success, -1 on failure
+ */
+int main(int argc, char *argv[])
 {
 	FILE *fd;
-	stack_t *nodo;
+	stack_t *stack = NULL;
+	char *line = NULL;
+	char *opcode, *n;
+	unsigned int line_number;
+	size_t l = 0;
+	ssize_t read;
 
-	global_t.n_linea = 0;
-	global_t.nodo = NULL, global_t.strings = NULL;
-	if (argc == 2)
+	if (argc != 2)
 	{
-		fd = fopen(argv[1], "r");
-		global_t.fd = fd;
-		if (!fd)
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+	fd = fopen(argv[1], "r");
+	if (fd == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+	line_number = 0;
+	while ((read = getline(&line, &l, fd)) != -1)
+	{
+		line_number++;
+		opcode = strtok(line, DELIM);
+		if (opcode == NULL || strncmp(opcode, " ", 1) == 0)
+			continue;
+		if (strcmp(opcode, "push") == 0)
 		{
-			printf("Error: Can't open file %s\n", argv[1]);
-			exit(EXIT_FAILURE);
+			n = strtok(NULL, DELIM);
+			push(&stack, line_number, n);
 		}
+		else
+			opcode_fun(opcode, &stack, line_number);
 	}
-	else
-		e_handler2(0);
-	getlinetok(fd);
-	nodo = global_t.nodo;
-	while (nodo != NULL)
-	{
-		nodo = nodo->next;
-		free(global_t.nodo);
-		global_t.nodo = nodo;
-	}
-	fclose(fd);
-	free(global_t.linea);
-	exit(EXIT_SUCCESS);
+	_frees(stack, line, fd);
+	return (EXIT_SUCCESS);
 }
