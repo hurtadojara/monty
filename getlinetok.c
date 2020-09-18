@@ -42,5 +42,4 @@ void getlinetok(FILE *fd)
 		real = getline(&line, &line_size, fd);
 		line[real] = '\0';
 	}
-	free(global_t.nn);
 }

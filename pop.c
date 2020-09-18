@@ -17,9 +17,8 @@ void pop(stack_t **stack, unsigned int line_number)
 		e_handler2(5);
 	tmp = *stack;
 	*stack = (*stack)->next;
-	if (tmp->n != 1)
+	if (tmp->n != '\0')
 	{
-	if ((*stack)->next == NULL)
 		free(tmp);
 	}
 	if (*stack != NULL)
