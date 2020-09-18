@@ -7,11 +7,11 @@ struct var_global global_t;
 void pint(stack_t **stack, unsigned int line_number)
 {
     stack_t *tmp = *stack;
+	(void) line_number;
     
 	if (tmp == NULL)
 	{
-		printf("error");
-        printf("%d", line_number);
+		e_handler(4);
 	}
     printf("%d\n", tmp->n);
 }

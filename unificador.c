@@ -26,5 +26,4 @@ void (*unificador(void))(stack_t **, unsigned int)
         i++;
     }
     return (NULL);
-
 }

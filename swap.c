@@ -8,6 +8,8 @@ struct var_global global_t;
 void swap(stack_t **stack, unsigned int line_number)
 {
 	int temp;
+	(void) line_number;
+
 	if (*stack && (*stack)->next)
 	{
 		 temp = (*stack)->n;
@@ -16,6 +18,6 @@ void swap(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("error: %d", line_number);
+		e_handler(1);
 	}
 }

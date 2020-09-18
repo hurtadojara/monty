@@ -8,9 +8,10 @@ struct var_global global_t;
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
+	(void) line_number;
 
 	if (stack == NULL || *stack == NULL)
-		printf("error in: %d", line_number);
+		e_handler(5);
 	tmp = *stack;
 	*stack = (*stack)->next;
 	if (tmp->n != 1)

@@ -19,11 +19,12 @@ int main(int argc, char **argv)
 			exit(EXIT_FAILURE);
 		}
 	}
-	else // PRINT USAGE ERROR
-		return (1);
+	else
+		e_handler(0);
 	global_t.strings = malloc(sizeof(char *) * 100);
 	if (!global_t.strings)
 	{
+		fprintf(stderr, "Error: malloc failed");
 		exit(EXIT_FAILURE);
 	}
 	getlinetok(fd);

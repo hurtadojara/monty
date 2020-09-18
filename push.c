@@ -8,16 +8,26 @@ struct var_global global_t;
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = NULL;
+	int i = 0;
 	(void)line_number;
 	
 	new = malloc(sizeof(stack_t));
 
 	if (new == NULL)
-		printf("error");
-    if (global_t.strings[1] == NULL)
-        printf("error");
-
-    new->n = atoi(global_t.strings[1]);
+	{
+		fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
+	while (global_t.strings[i] != NULL)
+	{
+		i++;
+	}
+	if (i < 2)
+	{
+		e_handler(3);
+	}
+	else
+    	new->n = atoi(global_t.strings[1]);
     if (*stack == NULL)
 	{
 		new->next = NULL;
