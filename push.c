@@ -11,7 +11,7 @@ struct var_global global_t;
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = NULL;
-	int i;
+	int i = 0;
 	(void)line_number;
 
 	new = malloc(sizeof(stack_t));
@@ -25,18 +25,18 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	global_t.nn = new;
-	i = 0;
 	while (global_t.strings[i] != NULL)
 	{
 		i++;
 	}
 	if (i < 2)
 	{
-		free(new);
 		e_handler(3);
 	}
 	else
-		new->n = atoi(global_t.strings[1]);
+		if (global_t.strings[1][0] == '-')
+			new->n = (atoi(global_t.strings[1]) * -1);
+	new->n = atoi(global_t.strings[1]);
 	if (*stack == NULL)
 	{
 		new->next = NULL;

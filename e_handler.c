@@ -30,6 +30,7 @@ void e_handler(int error)
 		eraser();
 		free(global_t.linea);
 		fclose(global_t.fd);
+		free(global_t.nn);
 		exit(EXIT_FAILURE);
 	}
 	else if (error == 4)
@@ -59,7 +60,6 @@ void e_handler2(int error)
 	else if (error == 0)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		fclose(global_t.fd);
 		exit(EXIT_FAILURE);
 	}
 	else if (error == 6)
