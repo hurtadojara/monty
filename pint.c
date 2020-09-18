@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+struct var_global global_t;
 /**
   * pint - function to prints the value at the top of the stack.
   * @stack: pointer to head.

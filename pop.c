@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+struct var_global global_t;
 /**
   * pop - function to removes the top element of the stack.
   * @stack: pointer to head.

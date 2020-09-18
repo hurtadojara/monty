@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+struct var_global global_t;
 /**
   * push - function to add node.
   * @stack: pointer to head.

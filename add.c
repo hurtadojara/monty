@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+struct var_global global_t;
 /**
   * add - function to adds.
   * @stack: pointer to head.

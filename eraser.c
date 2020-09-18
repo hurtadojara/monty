@@ -1,8 +1,8 @@
 #include "monty.h"
-
 /**
   * eraser - fuction to free.
   */
+struct var_global global_t;
 void eraser(void)
 {
 	int i = 0, j = 0;

@@ -1,7 +1,5 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+struct var_global global_t;
 /**
   * unificador - function to find opcode.
   * Return: pointer to function.

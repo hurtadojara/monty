@@ -3,6 +3,7 @@
   * e_handler - fuction to handle error.
   * @error: id error.
   */
+struct var_global global_t;
 void e_handler(int error)
 {
 	if (error == 1)

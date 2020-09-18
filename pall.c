@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+struct var_global global_t;
 /**
   * pall - function to prints all the values on the stack.
   * @stack: pointer to head.
