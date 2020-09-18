@@ -1,6 +1,10 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -36,13 +40,10 @@ struct var_global
         char **strings;
         stack_t *nodo;
         unsigned int n_linea;
-
+        char *linea;
+        FILE *fd;
 };
 extern struct var_global global_t;
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 void pall(stack_t **, unsigned int);
 void push(stack_t **, unsigned int);
@@ -54,5 +55,6 @@ void nop(stack_t **, unsigned int);
 void (*unificador())(stack_t **, unsigned int);
 void getlinetok(FILE *);
 void e_handler(int error);
+void eraser(void);
 
 #endif

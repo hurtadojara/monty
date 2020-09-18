@@ -8,16 +8,19 @@ struct var_global global_t;
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = NULL;
-	int i = 0;
+	int i;
 	(void)line_number;
 	
 	new = malloc(sizeof(stack_t));
-
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed");
+		eraser();
+		free(global_t.linea);
+		fclose(global_t.fd);
 		exit(EXIT_FAILURE);
 	}
+	i = 0;
 	while (global_t.strings[i] != NULL)
 	{
 		i++;

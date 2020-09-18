@@ -11,12 +11,18 @@ void getlinetok(FILE *fd)
 	int read = 0, arg = 0;
     void (*operation)(stack_t **, unsigned int);
 
-    global_t.strings = malloc(sizeof(char *) * 100);
-	if (!global_t.strings)
-		exit(EXIT_FAILURE);
 	read = getline(&line, &line_size, fd);
+	global_t.linea = line;
 	while (read > 0)
 	{
+	global_t.strings = malloc(sizeof(char *) * 100);
+		if (!global_t.strings)
+		{
+			fprintf(stderr, "Error: malloc failed");
+			free(global_t.strings);
+			fclose(fd);
+			exit(EXIT_FAILURE);
+		}
 		token = strtok(line, " \n\t\r\a");
 		for (; token != NULL; token = strtok(NULL, " \n\t\r\a"))
 		{
@@ -27,6 +33,8 @@ void getlinetok(FILE *fd)
 		global_t.n_linea++;
 		operation = unificador(global_t.strings, global_t.n_linea);
 		operation(&global_t.nodo, global_t.n_linea);
+		eraser();
+		free(global_t.linea);
 		read = getline(&line, &line_size, fd);
 	}
 }

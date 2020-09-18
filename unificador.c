@@ -17,13 +17,22 @@ void (*unificador(void))(stack_t **, unsigned int)
         {NULL, NULL}
     };
     int i = 0;
-    while (i < 6)
+    int cmp = 0;
+
+    while (i < 8)
     {
-        if (strcmp(functions[i].opcode, global_t.strings[0]) == 0)
+        cmp = strcmp(functions[i].opcode, global_t.strings[0]);
+        if (cmp == 0)
         {
             return (functions[i].f);
         }
         i++;
+        if (i == 7)
+            break;
+    }
+    if (cmp != 0)
+    {
+        e_handler(2);
     }
     return (NULL);
 }
