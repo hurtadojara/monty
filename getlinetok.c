@@ -15,14 +15,14 @@ void getlinetok(FILE *fd)
 	void (*operation)(stack_t **, unsigned int);
 
 	real = getline(&line, &line_size, fd);
-	line[real - 1] = '\0';
+	line[real] = '\0';
 	global_t.linea = line;
 	while (real != -1)
 	{
 		global_t.strings = malloc(sizeof(char *) * 100);
 		if (!global_t.strings)
 		{
-			fprintf(stderr, "Error: malloc failed");
+			fprintf(stderr, "Error: malloc failed\n");
 			free(global_t.strings);
 			fclose(fd);
 			exit(EXIT_FAILURE);
@@ -38,8 +38,9 @@ void getlinetok(FILE *fd)
 		operation = unificador(global_t.strings, global_t.n_linea);
 		operation(&global_t.nodo, global_t.n_linea);
 		eraser();
+		global_t.strings = NULL;
 		real = getline(&line, &line_size, fd);
-		line[real - 1] = '\0';
-
+		line[real] = '\0';
 	}
+	free(global_t.nn);
 }

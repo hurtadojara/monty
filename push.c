@@ -19,10 +19,12 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "Error: malloc failed");
 		eraser();
+		free(new);
 		free(global_t.linea);
 		fclose(global_t.fd);
 		exit(EXIT_FAILURE);
 	}
+	global_t.nn = new;
 	i = 0;
 	while (global_t.strings[i] != NULL)
 	{
@@ -30,6 +32,7 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	if (i < 2)
 	{
+		free(new);
 		e_handler(3);
 	}
 	else

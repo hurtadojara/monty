@@ -16,6 +16,6 @@ void eraser(void)
 		free(global_t.strings[j]);
 		global_t.strings[j] = NULL;
 		j++;
-	}	
+	}
 	free(global_t.strings);
 }

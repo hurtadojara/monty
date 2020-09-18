@@ -43,6 +43,7 @@ typedef struct instruction_s
  * @n_linea: num of line.
  * @linea: line of getlione.
  * @fd: file descriptor.
+ * @nn: new_p
  */
 struct var_global
 {
@@ -51,6 +52,7 @@ struct var_global
 		unsigned int n_linea;
 		char *linea;
 		FILE *fd;
+		stack_t *nn;
 };
 extern struct var_global global_t;
 
