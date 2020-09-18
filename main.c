@@ -38,5 +38,5 @@ int main(int argc, char **argv)
 	}
 	fclose(fd);
 	free(global_t.linea);
-	return (1);
+	exit(EXIT_SUCCESS);
 }
