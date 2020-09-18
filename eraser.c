@@ -1,5 +1,5 @@
 #include "monty.h"
-struct var_global global_t;
+
 /**
   * eraser - fuction to free.
   */

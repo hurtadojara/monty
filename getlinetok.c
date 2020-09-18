@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-struct var_global global_t;
+
 /**
   * getlinetok - function to get line and toks.
   * @fd: file descriptor.
@@ -37,7 +37,6 @@ void getlinetok(FILE *fd)
 		operation = unificador(global_t.strings, global_t.n_linea);
 		operation(&global_t.nodo, global_t.n_linea);
 		eraser();
-		free(global_t.linea);
 		read = getline(&line, &line_size, fd);
 	}
 }

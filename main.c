@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		global_t.fd = fd;
 		if (!fd)
 		{
-			printf("Error: Can't open file %s\n", argv[0]);
+			printf("Error: Can't open file %s\n", argv[1]);
 			fclose(fd);
 			exit(EXIT_FAILURE);
 		}
@@ -37,5 +37,6 @@ int main(int argc, char **argv)
 		global_t.nodo = nodo;
 	}
 	fclose(fd);
+	free(global_t.linea);
 	return (1);
 }
