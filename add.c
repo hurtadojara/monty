@@ -7,6 +7,7 @@ struct var_global global_t;
 void add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
+	(void)line_number;
 
 	if (*stack && (*stack)->next)
 	{
